@@ -15,15 +15,11 @@ GPIO.setup(led,GPIO.OUT)
 GPIO.output(led,0)
 #############End Setup##############
 
-x=1    
-while (x==1): #infinite loop
-    response=easygui.buttonbox(msg='Turn the light',title='Light Switch',choices=('On','Off','Quit'))
-    if response=='On':
-	GPIO.output(led,1)
-    elif response=='Off':
-	GPIO.output(led,0)
-    elif response=='Quit':
-	break
+msg = "Enter the timing for the LED"
+title="Blinking LED"
+fieldNames=["On1","Off1","On2","Off2","On3","Off3"]
+fieldValues=[]
+fieldValues=easygui.multenterbox(msg,title,fieldNames)
 
 #cleanup and end
 GPIO.cleanup()
